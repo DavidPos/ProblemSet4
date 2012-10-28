@@ -76,12 +76,12 @@ def getWordScore(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    wordLis = list(word)
+    
     total = 0
     if len(word) == n:
         total = 50
 
-    for l in wordLis:
+    for l in word:
         if l in SCRABBLE_LETTER_VALUES:
             total += SCRABBLE_LETTER_VALUES[l]
             print(total, SCRABBLE_LETTER_VALUES[l])
