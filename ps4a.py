@@ -76,7 +76,7 @@ def getWordScore(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    
+
     total = 0
     if len(word) == 0:
         return total
@@ -156,7 +156,11 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    modHand = hand.copy()
+    for l in word:
+         modHand[l] = modHand.get(l, 0) - 1
+
+    return modHand
 
 
 
@@ -188,8 +192,10 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
-
+    total = 0
+    for i in hand:
+        total = total + hand[i]
+    return total
 
 
 def playHand(hand, wordList, n):
