@@ -78,7 +78,7 @@ def getWordScore(word, n):
     """
     wordLis = list(word)
     total = 0
-    if wordLis.count == n:
+    if len(word) == n:
         total = 50
 
     for l in wordLis:
