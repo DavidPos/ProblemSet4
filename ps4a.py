@@ -78,13 +78,14 @@ def getWordScore(word, n):
     """
     
     total = 0
-    if len(word) == n:
-        total = 50
-
+    if len(word) == 0:
+        return total
     for l in word:
         if l in SCRABBLE_LETTER_VALUES:
-            total += SCRABBLE_LETTER_VALUES[l]
-            print(total, SCRABBLE_LETTER_VALUES[l])
+             total += SCRABBLE_LETTER_VALUES[l]
+    total = (total * len(word))
+    if len(word) == n:
+        total += 50
     return total
 
 
