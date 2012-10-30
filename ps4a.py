@@ -293,25 +293,28 @@ def playGame(wordList):
     firstTurn = True
     choice = ''
     newHand = {}
+    repeatHand = {}
 
-    choice = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game:')
-    if choice == 'n':
+
+    while choice  != 'e':
+     choice = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game:')
+     if choice == 'n':
        newHand = dealHand(HAND_SIZE)
-       playHand(newHand, wordList, HAND_SIZE)
+
+       playHand(newHand.copy(), wordList, HAND_SIZE)
        firstTurn = False
-    elif choice == 'r':
+     elif choice == 'r':
         if firstTurn == True:
             print 'You have not played a hand yet. Please play a new hand first!'
 
         else:
-            playHand(newHand, wordList, HAND_SIZE)
-    elif choice == 'e':
+            playHand(newHand.copy(), wordList, HAND_SIZE)
+
+     elif choice ==  'e':
         return
 
-    else:
+     else:
         print'Invalid command.'
-
-
 
 
 
